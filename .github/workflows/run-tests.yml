@@ -67,7 +67,7 @@ jobs:
         run: composer show -D
 
       - name: Execute tests
-        run: vendor/bin/pest --parallel
+        run: vendor/bin/pest
       
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse --memory-limit=1G
