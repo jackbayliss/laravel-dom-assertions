@@ -52,7 +52,7 @@ class TestViewMacros
     public function assertElementExists(): Closure
     {
         return function ($selector = 'body', $callback = null): TestView {
-            /** @var TestView $this */
+            /** @var \Illuminate\Testing\TestView&static $this */
             Assert::assertNotEmpty(
                 (string) $this,
                 'The view is empty!'
