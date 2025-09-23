@@ -22,7 +22,7 @@ class TestViewMacros
     public function assertHtml5(): Closure
     {
         return function () {
-            /** @var TestView $this */
+            /** @var \Illuminate\Testing\TestView&static $this */
             Assert::assertNotEmpty(
                 (string) $this,
                 'The view is empty!'
@@ -93,7 +93,7 @@ class TestViewMacros
     public function assertFormExists(): Closure
     {
         return function ($selector = 'form', $callback = null): TestView {
-            /** @var TestView $this */
+            /** @var \Illuminate\Testing\TestView&static $this */
             Assert::assertNotEmpty(
                 (string) $this,
                 'The view is empty!'

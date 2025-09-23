@@ -22,7 +22,7 @@ class TestResponseMacros
     public function assertHtml5(): Closure
     {
         return function () {
-            /** @var TestResponse $this */
+            /** @var \Illuminate\Testing\TestResponse&static $this */
             Assert::assertNotEmpty(
                 $this->getContent(),
                 'The view is empty!'
@@ -52,7 +52,7 @@ class TestResponseMacros
     public function assertElementExists(): Closure
     {
         return function ($selector = 'body', $callback = null): TestResponse {
-            /** @var TestResponse $this */
+            /** @var \Illuminate\Testing\TestResponse&static $this */
             Assert::assertNotEmpty(
                 $this->getContent(),
                 'The view is empty!'
@@ -93,7 +93,7 @@ class TestResponseMacros
     public function assertFormExists(): Closure
     {
         return function ($selector = 'form', $callback = null): TestResponse {
-            /** @var TestResponse $this */
+            /** @var \Illuminate\Testing\TestResponse&static $this */
             Assert::assertNotEmpty(
                 $this->getContent(),
                 'The view is empty!'
