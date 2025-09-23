@@ -68,6 +68,7 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/pest
-      
-      - name: Run PHPStan
+
+      - name: Run PHPStan on latest
+        if: matrix.php == '8.2' && matrix.laravel == '12.*'
         run: vendor/bin/phpstan analyse --memory-limit=1G
