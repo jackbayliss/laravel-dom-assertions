@@ -13,8 +13,6 @@ use Sinnbeck\DomAssertions\Asserts\AssertForm;
 use Sinnbeck\DomAssertions\Support\DomParser;
 
 /**
- * @internal
- *
  * @mixin TestComponent
  */
 class TestComponentMacros
@@ -22,7 +20,6 @@ class TestComponentMacros
     public function assertHtml5(): Closure
     {
         return function () {
-            /** @var \Illuminate\Testing\TestComponent&static $this */
             Assert::assertNotEmpty(
                 (string) $this,
                 'The component is empty!'
@@ -52,8 +49,6 @@ class TestComponentMacros
     public function assertElementExists(): Closure
     {
         return function ($selector = 'body', $callback = null): TestComponent {
-            /** @var \Illuminate\Testing\TestComponent&static $this */
-
             Assert::assertNotEmpty(
                 (string) $this,
                 'The component is empty!'
@@ -94,7 +89,6 @@ class TestComponentMacros
     public function assertFormExists(): Closure
     {
         return function ($selector = 'form', $callback = null): TestComponent {
-            /** @var \Illuminate\Testing\TestComponent&static $this */
             Assert::assertNotEmpty(
                 (string) $this,
                 'The component is empty!'
