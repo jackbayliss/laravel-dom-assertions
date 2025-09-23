@@ -22,7 +22,6 @@ class TestComponentMacros
     public function assertHtml5(): Closure
     {
         return function () {
-            /** @var TestComponent $this */
             Assert::assertNotEmpty(
                 (string) $this,
                 'The component is empty!'
@@ -52,7 +51,6 @@ class TestComponentMacros
     public function assertElementExists(): Closure
     {
         return function ($selector = 'body', $callback = null): TestComponent {
-            /** @var TestComponent $this */
             Assert::assertNotEmpty(
                 (string) $this,
                 'The component is empty!'
