@@ -53,7 +53,6 @@ class TestComponentMacros
     {
         return function ($selector = 'body', $callback = null): TestComponent {
             /** @var \Illuminate\Testing\TestComponent $this */
-
             Assert::assertNotEmpty(
                 (string) $this,
                 'The component is empty!'
