@@ -101,7 +101,6 @@ class TestViewMacros
                 Assert::fail($exception->getMessage());
             }
 
-            /** @var TestView $this */
             if (! isset($this->parserQuery)) {
                 $this->parserQuery = $parser->query($selector);
             }
