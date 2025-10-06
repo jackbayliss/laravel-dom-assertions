@@ -101,21 +101,24 @@ class TestViewMacros
                 Assert::fail($exception->getMessage());
             }
 
-            $element = $parser->query($selector);
+            /** @var TestView $this */
+            if (! isset($this->parserQuery)) {
+                $this->parserQuery = $parser->query($selector);
+            }
 
             Assert::assertNotNull(
-                $element,
+                $this->parserQuery,
                 sprintf('No element found with selector: %s', $selector)
             );
 
-            if (! $element instanceof DOMElement) {
+            if (! $this->parserQuery instanceof DOMElement) {
                 Assert::fail('The element found is not a DOMElement!');
             }
 
             foreach ($attributes as $attribute => $expected) {
                 switch ($attribute) {
                     case 'text':
-                        $actual = trim($element->textContent);
+                        $actual = trim($this->parserQuery->textContent);
                         Assert::assertStringContainsString(
                             $expected,
                             $actual,
@@ -129,7 +132,7 @@ class TestViewMacros
                         break;
 
                     default:
-                        $actual = $element->getAttribute($attribute);
+                        $actual = $this->parserQuery->getAttribute($attribute);
 
                         Assert::assertNotEmpty(
                             $actual,
