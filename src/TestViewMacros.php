@@ -61,7 +61,9 @@ class TestViewMacros
             );
 
             try {
-                $parser = DomParser::new((string) $this);
+                if (! app()->has('dom-assertions.parser')) {
+                    app()->instance('dom-assertions.parser', DomParser::new((string) $this));
+                }
             } catch (DOMException $exception) {
                 Assert::fail($exception->getMessage());
             }
@@ -72,7 +74,7 @@ class TestViewMacros
             }
 
             if (is_string($selector)) {
-                $element = $parser->query($selector);
+                $element = app()->make('dom-assertions.parser')->query($selector);
             } else {
                 Assert::fail('Invalid selector!');
             }
